@@ -1,5 +1,9 @@
 # CodePeer AI
 
+<p align="center">
+  <img src="./assets/codepeer-ai-logo.svg" alt="CodePeer AI logo" width="400"/>
+</p>
+
 ## Takım İsmi
 **CodePeer AI Team**
 
