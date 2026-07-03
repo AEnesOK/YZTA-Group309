@@ -1,7 +1,7 @@
 # CodePeer AI
 
 <p align="center">
-  <img src="./assets/codepeer-ai-logo.svg" alt="CodePeer AI logo" width="400"/>
+  <img src="./assets/codepeer-ai-logo.svg" alt="CodePeer AI logo" width="600"/>
 </p>
 
 ## Takım İsmi
