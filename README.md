@@ -92,6 +92,39 @@ Sprint 1'e bu bütçeden **15 puan** ayrılmıştı çünkü bu sprintte henüz 
 
 *Not: Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
 
+### 🗓️ Daily Scrum Sürecimiz
+Ekip içi iletişimimizi ve günlük durum değerlendirmelerimizi **Slack** üzerinden yürüttük. Her gün ekip üyeleri "Dün ne yaptım?", "Bugün ne yapacağım?" ve "Önümde bir engel var mı?" formatında güncellemelerini Slack kanalımızda paylaşarak senkronize kaldı. 
+
+<p align="center">
+  <img src="./assets/slack-daily-scrum.png" alt="Slack Daily Scrum Chat" width="600"/>
+</p>
+
+### 🚀 Ürün Geliştirme Durumu
+Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için henüz kodlama aşamasına geçilmemiştir. Ancak ürünümüzün görsel kimliğini oluşturacak ilk çıktımız olan marka logomuz tasarlanmış ve proje klasör yapımız GitHub üzerinde ayağa kaldırılmıştır.
+
+<p align="center">
+  <img src="./assets/github-repo-or-logo-ss.png" alt="Proje Durumu" width="600"/>
+</p>
+
+### 🔍 Sprint Review (Sprint İncelemesi)
+**Bu sprintte neler başardık ve nelere karar verdik?**
+- Ürünün temel problemi ve vizyonu netleştirildi (AI tabanlı Code Review hakemliği).
+- Teknik altyapı kararları kesinleşti: Next.js, Supabase ve AI motoru olarak Groq kullanılmasına karar verildi.
+- Kanban board'umuz (Product Backlog) Miro üzerinde oluşturuldu ve görev dağılımları tamamlandı.
+- Sprint 1 için planlanan tüm idari ve mimari kararlar firesiz alınarak %100 başarı oranına ulaşıldı.
+
+### ♻️ Sprint Retrospective (Sprint Değerlendirmesi)
+**Neyi iyi yaptık?**
+- Ekip içi iletişim ve görev paylaşımı (Scrum Master, PO, BA, QA) çok hızlı ve sorunsuz oturdu.
+- Teknoloji seçimi konusunda ortak karara hızlı varıldı.
+
+**Neyi iyileştirmemiz gerekiyor?**
+- Toplantı saatlerinin (Daily) herkesin takvimine daha uygun bir sabit saate çekilmesi gerekiyor.
+- Sprint 2'deki teknik görevlerin (Supabase entegrasyonu vb.) efor tahminlemelerini yaparken potansiyel riskleri daha detaylı konuşmalıyız.
+
+**Gelecek Sprint (Sprint 2) İçin Aksiyon Planı:**
+- Kodlamaya aktif olarak başlanacak.
+- Temel iskeletin (Authentication ve Monaco Editor ile kod gönderme ekranı) ayağa kaldırılmasına odaklanılacak.
 
 
 ## Sprint-2
