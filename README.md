@@ -57,3 +57,37 @@ Yapay zeka, yapılan review'ların kalitesine göre kullanıcılara puan verir. 
 <p align="center">
   <img src="./assets/Sprint1.png" alt="Sprint 1" width="900"/>
 </p>
+
+
+## Sprint 1 (19 Haziran - 5 Temmuz 2026): Planlama ve Altyapı
+
+Sprint 1 kapsamında kod geliştirmeye başlamadan önce, projenin sağlam bir temel üzerine kurulması için gerekli planlama ve altyapı çalışmaları tamamlandı.
+
+| Kart | Açıklama | Puan |
+|---|---|---|
+| Proje fikri & vizyon dokümanı | AI-Peer → CodePeer AI vizyon dokümanının yazılması, problem tanımı | 2 |
+| Takım rolleri belirleme | Kim hangi görevi üstlenecek, unvanların netleştirilmesi | 1 |
+| GitHub repo kurulumu | Repo açma, README şablonunun doldurulması | 1 |
+| Logo & marka kimliği | CodePeer AI logosunun tasarlanması | 2 |
+| Teknoloji seçimleri | Next.js, Supabase, Groq, Vercel, Monaco Editor kararı | 2 |
+| Hedef kitle & özellik analizi | Ürün özelliklerinin ve hedef kitlenin dokümante edilmesi | 3 |
+| Product Backlog oluşturma | Miro board kurulumu, backlog kartlarının yazılması | 2 |
+| Rakip analizi | Mevcut code review süreçlerinin ve AI destekli geliştirici araçlarının incelenmesi | 2 |
+| **Sprint 1 Toplamı** | | **15** |
+
+Sprint 1, projenin kod yazılmadan önceki temelini oluşturduğu için doğası gereği düşük-orta puanlı işlerden oluşuyor; bu sprintte asıl amaç hız değil, doğru kararların (vizyon, teknoloji, hedef kitle) sağlam şekilde atılmasıydı. Toplam proje puanının **100** olduğu varsayımıyla Sprint 1'e **15 puan** karşılık geliyor ve bu puanın tamamı tamamlanmış durumda. Geriye kalan **85 puan**, Sprint 2'de kurulacak çalışan iskelet (35 puan) ve Sprint 3'te eklenecek yapay zeka katmanı ile sunum hazırlıklarına (50 puan) dağılmış durumda.
+
+## Hikaye Puanı (Story Point) Sistemi
+
+Proje ilerlemesini somut ve ölçülebilir şekilde takip edebilmek için tüm projeye toplam **100 puanlık** bir hikaye puanı bütçesi belirledik ve bu bütçeyi, backlog'daki her kartın karmaşıklığına göre 3 sprint arasında dağıttık. Basit/rutin işler düşük puan (1-3), belirsizlik veya efor gerektiren işler yüksek puan (5-10 arası) almıştır.
+
+Sprint 1'e bu bütçeden **15 puan** ayrılmıştı çünkü bu sprintte henüz kod yazılmıyor, projenin karar aşaması (vizyon, teknoloji seçimi, hedef kitle, backlog) tamamlanıyordu — bu tür işler doğası gereği Sprint 2 ve 3'teki geliştirme işlerine kıyasla daha az karmaşıktır. Sprint 1 sonunda planlanan 15 puanın tamamı tamamlanmış, yani bu sprint **%100 hedefe ulaşarak** kapanmıştır.
+
+| Sprint | Planlanan Puan | Tamamlanan Puan | Durum |
+|---|---|---|---|
+| Sprint 1 (19 Haziran - 5 Temmuz) | 15 | 15 | ✅ Tamamlandı |
+| Sprint 2 (6 - 19 Temmuz) | 35 | — | 🔄 Devam Ediyor |
+| Sprint 3 (20 Temmuz - 2 Ağustos) | 50 | — | ⏳ Planlandı |
+| **Toplam Proje Puanı** | **100** | **15 / 100 (%15)** | |
+
+*Not: Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
