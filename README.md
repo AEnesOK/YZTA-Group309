@@ -103,7 +103,7 @@ Ekip içi iletişimimizi ve günlük durum değerlendirmelerimizi **Slack** üze
 Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için henüz kodlama aşamasına geçilmemiştir. Ancak ürünümüzün görsel kimliğini oluşturacak ilk çıktımız olan marka logomuz tasarlanmış ve proje klasör yapımız GitHub üzerinde ayağa kaldırılmıştır.
 
 <p align="center">
-  <img src="./assets/github-repo-or-logo-ss.png" alt="Proje Durumu" width="600"/>
+  <img src="./assets/codepeer-ai-logo.svg" alt="Proje Durumu" width="600"/>
 </p>
 
 ### 🔍 Sprint Review (Sprint İncelemesi)
