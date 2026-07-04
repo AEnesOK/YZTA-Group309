@@ -49,4 +49,4 @@ Yapay zeka, yapılan review'ların kalitesine göre kullanıcılara puan verir. 
 - Kendi mentorluk/eğitim programlarında pratik PR süreçleri simüle etmek isteyen bootcamp ve eğitim kurumları
 
 ## Product Backlog
-[*(Board linki, ekran görüntüsü ve Sprint 1 planı yakında eklenecek)*](https://miro.com/app/board/uXjVH-iNY0g=/?share_link_id=451167648398)
+(https://miro.com/app/board/uXjVH-iNY0g=/?share_link_id=451167648398)
