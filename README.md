@@ -109,7 +109,6 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 ### 🔍 Sprint Review (Sprint İncelemesi)
 **Bu sprintte neler başardık ve nelere karar verdik?**
 - Ürünün temel problemi ve vizyonu netleştirildi (AI tabanlı Code Review hakemliği).
-- Teknik altyapı kararları kesinleşti: Next.js, Supabase ve AI motoru olarak Groq kullanılmasına karar verildi.
 - Kanban board'umuz (Product Backlog) Miro üzerinde oluşturuldu ve görev dağılımları tamamlandı.
 - Sprint 1 için planlanan tüm idari ve mimari kararlar firesiz alınarak %100 başarı oranına ulaşıldı.
 
@@ -120,11 +119,11 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 
 **Neyi iyileştirmemiz gerekiyor?**
 - Toplantı saatlerinin (Daily) herkesin takvimine daha uygun bir sabit saate çekilmesi gerekiyor.
-- Sprint 2'deki teknik görevlerin (Supabase entegrasyonu vb.) efor tahminlemelerini yaparken potansiyel riskleri daha detaylı konuşmalıyız.
+- Sprint 2'deki teknik görevlerin efor tahminlemelerini yaparken potansiyel riskleri daha detaylı konuşmalıyız.
 
 **Gelecek Sprint (Sprint 2) İçin Aksiyon Planı:**
 - Kodlamaya aktif olarak başlanacak.
-- Temel iskeletin (Authentication ve Monaco Editor ile kod gönderme ekranı) ayağa kaldırılmasına odaklanılacak.
+- Temel iskeletin ayağa kaldırılmasına odaklanılacak.
 
 
 ## Sprint-2
