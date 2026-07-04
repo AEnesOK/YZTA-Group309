@@ -50,3 +50,10 @@ Yapay zeka, yapılan review'ların kalitesine göre kullanıcılara puan verir. 
 
 ## Product Backlog
 [Backlog Link for our Miro Page](https://miro.com/app/board/uXjVH-iNY0g=/?share_link_id=451167648398)
+
+
+## Sprint-1
+
+<p align="center">
+  <img src="./assets/Sprint-1 Screenshot.png" alt="CodePeer AI logo" width="900"/>
+</p>
