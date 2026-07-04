@@ -91,3 +91,11 @@ Sprint 1'e bu bütçeden **15 puan** ayrılmıştı çünkü bu sprintte henüz 
 | **Toplam Proje Puanı** | **100** | **15 / 100 (%15)** | |
 
 *Not: Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
+
+
+
+## Sprint-2
+Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
+
+## Sprint-3
+Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
