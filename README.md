@@ -55,5 +55,5 @@ Yapay zeka, yapılan review'ların kalitesine göre kullanıcılara puan verir. 
 ## Sprint-1
 
 <p align="center">
-  <img src="./assets/Sprint-1 Screenshot.png" alt="CodePeer AI logo" width="900"/>
+  <img src="./assets/Sprint1.png" alt="Sprint 1" width="900"/>
 </p>
