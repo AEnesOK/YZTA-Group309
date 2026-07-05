@@ -57,6 +57,10 @@ Yapay zeka, yapılan review'ların kalitesine göre kullanıcılara puan verir. 
   <img src="./assets/Sprint1.png" alt="Sprint 1" width="900"/>
 </p>
 
+<p align="center">
+  <img src="./assets/Sprint1Timeline.png" alt="Sprint 1" width="900"/>
+</p>
+
 
 ## Sprint 1 (19 Haziran - 5 Temmuz 2026): Planlama ve Altyapı
 
