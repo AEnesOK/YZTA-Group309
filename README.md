@@ -14,7 +14,7 @@
 | Ahmet Enes Ok | Scrum Master & Developer | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ahmetenesok/) |
 | Kaan Algür | Product Owner & Developer | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaan-algür/) |
 | Begüm Çetin | Business Analyst | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/beguumcetin/) |
-| Bengi Su Yurdunkulu | Process & QA Analyst | |
+| Bengi Su Yurdunkulu | Process & QA Analyst | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bengisu-yurdunkulu-6bb031259/) |   
 | Mehmet Emin Yılmaz | QA Tester / Technical Writer | |
 ## Ürün İsmi
 **CodePeer AI**
