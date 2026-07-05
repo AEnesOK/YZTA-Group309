@@ -9,14 +9,13 @@
 
 ## Takım Rolleri
 
-| İsim | Unvan |
-|---|---|
-| Ahmet Enes Ok | Scrum Master & Developer |
-| Kaan Algür | Product Owner & Developer |
-| Begüm Çetin | Business Analyst |
-| Bengi Su Yurdunkulu | Process & QA Analyst |
-| Mehmet Emin Yılmaz | QA Tester / Technical Writer |
-
+| İsim | Unvan | LinkedIn |
+|------|--------|----------|
+| Ahmet Enes Ok | Scrum Master & Developer | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ahmetenesok/) |
+| Kaan Algür | Product Owner & Developer | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaan-algür/) |
+| Begüm Çetin | Business Analyst | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/beguumcetin/) |
+| Bengi Su Yurdunkulu | Process & QA Analyst | |
+| Mehmet Emin Yılmaz | QA Tester / Technical Writer | |
 ## Ürün İsmi
 **CodePeer AI**
 
