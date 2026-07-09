@@ -1,0 +1,21 @@
+# Sanal ortam
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Loglar ve geçici dosyalar
+*.log
+*.tmp
+.DS_Store
