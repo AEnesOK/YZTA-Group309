@@ -132,6 +132,7 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 ## Sprint-2
 - Kodlama planı oluşturulmaya başlandı
 - İmplementation plan oluşturulmaya başlandı
+- Kodlamaya başlandıi.
 
 ## Sprint-3
 Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
