@@ -1,4 +1,123 @@
-/* Özel arayüz tasarımlarımız buraya gelecek */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap');
+
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary: #0ea5e9;
+    --bg-color: #f1f5f9;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
 body {
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+}
+
+/* Typography */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+/* Buttons */
+.btn-premium {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    color: white;
+}
+
+.btn-premium-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-premium-outline:hover {
+    background: rgba(79, 70, 229, 0.05);
+    color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border-radius: 0.75rem;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s;
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* Code Blocks */
+.code-container {
+    background: #0f172a;
+    border-radius: 1rem;
+    border: 1px solid #1e293b;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    padding: 1.5rem;
+    position: relative;
+    overflow-x: auto;
+}
+.code-container code {
+    color: #e2e8f0;
+    font-family: Consolas, 'Fira Code', monospace;
+    font-size: 0.95rem;
+}
+.badge-premium {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    color: white;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-author {
+    background: #334155;
+    color: #cbd5e1;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
 }

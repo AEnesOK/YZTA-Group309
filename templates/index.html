@@ -5,70 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
 
-    <div class="container mt-5">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-8 bg-white p-5 rounded shadow-sm">
+            <div class="col-lg-9 col-xl-8">
                 
-                <div class="text-center">
-                    <h1 class="display-4 text-primary fw-bold">AI-Peer</h1>
-                    <p class="lead text-muted mt-3">Akran Değerlendirmesi ve Yapay Zeka Denetimli Kod İnceleme Platformu</p>
-                    <hr class="my-4">
-
+                <div class="glass-card mb-5 text-center">
+                    <h1 class="hero-title mb-3">CodePeer AI</h1>
+                    <p class="lead text-muted mb-4" style="font-weight: 500;">Yeni nesil, yapay zeka hakemli Code Review platformu.</p>
+                    
                     {% if message %}
-                    <div class="alert alert-success fs-5 mb-4">{{ message }}</div>
+                    <div class="alert alert-success fs-5 mb-4 rounded-4">{{ message }}</div>
                     {% endif %}
 
-                    <div class="mt-4 mb-4">
+                    <div class="mt-4">
                         {% if username %}
-                            <h4 class="mb-4 text-success">Hoş geldin, {{ username }}!</h4>
-                            <a href="/post" class="btn btn-warning mx-2 fw-bold">Kod Paylaş</a>
-                            <a href="/logout" class="btn btn-outline-danger mx-2">Çıkış Yap</a>
+                            <h4 class="mb-4" style="color: var(--primary);">Hoş geldin, <span class="fw-bold">{{ username }}</span>! 👋</h4>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="/post" class="btn btn-premium px-4">Kod Paylaş</a>
+                                <a href="/logout" class="btn btn-premium-outline px-4">Çıkış Yap</a>
+                            </div>
                         {% else %}
-                            <a href="/login" class="btn btn-outline-primary mx-2">Giriş Yap</a>
-                            <a href="/register" class="btn btn-primary mx-2">Kayıt Ol</a>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="/login" class="btn btn-premium-outline px-4">Giriş Yap</a>
+                                <a href="/register" class="btn btn-premium px-4">Kayıt Ol</a>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
 
-                <hr class="my-5">
-                <h3 class="text-start mb-4 text-secondary">Son Paylaşılan Kodlar</h3>
+                <div class="d-flex justify-content-between align-items-center mb-4 px-2">
+                    <h3 class="fw-bold m-0" style="color: var(--text-main);">Son Paylaşılan Kodlar</h3>
+                    <div class="badge bg-white text-dark shadow-sm px-3 py-2 rounded-pill border">🚀 Sprint 2 MVP</div>
+                </div>
                 
                 {% if username %}
                     {% if posts %}
-                        <div class="row text-start">
+                        <div class="row">
                             {% for post in posts %}
                             <div class="col-12 mb-4">
-                                <div class="card border-0 shadow-sm">
-                                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                                        <h5 class="m-0 fw-bold text-primary">{{ post.title }}</h5>
-                                        <span class="badge bg-dark">{{ post.language }}</span>
+                                <div class="glass-card p-4 transition-all hover-lift" style="border-radius: 1.25rem; padding: 2rem !important;">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="m-0 fw-bold" style="color: var(--text-main);">{{ post.title }}</h4>
+                                        <div class="d-flex gap-2">
+                                            <span class="badge-author">Gizli Yazar</span>
+                                            <span class="badge-premium">{{ post.language }}</span>
+                                        </div>
                                     </div>
-                                    <div class="card-body bg-light">
-                                        <pre class="bg-dark text-light p-3 rounded" style="overflow-x: auto;"><code>{{ post.content }}</code></pre>
+                                    <div class="code-container mt-3">
+                                        <pre class="m-0"><code>{{ post.content }}</code></pre>
                                     </div>
                                 </div>
                             </div>
                             {% endfor %}
                         </div>
                     {% else %}
-                        <div class="alert alert-info text-start">
-                            Henüz hiç kod paylaşılmamış. İlk paylaşan sen ol!
+                        <div class="glass-card text-center py-5">
+                            <h5 class="text-muted">Henüz hiç kod paylaşılmamış. İlk paylaşan sen ol!</h5>
                         </div>
                     {% endif %}
                 {% else %}
-                    <div class="alert alert-warning text-center fs-5 shadow-sm">
-                        Paylaşılan kodları görebilmek için lütfen <strong><a href="/login" class="text-decoration-none">Giriş Yapın</a></strong> veya <strong><a href="/register" class="text-decoration-none">Kayıt Olun</a></strong>.
+                    <div class="glass-card text-center p-5">
+                        <div class="mb-3">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4 class="fw-bold mb-3">Gizlilik Koruması Aktif</h4>
+                        <p class="text-muted mb-4 fs-5">
+                            Çift Kör (Double-Blind) sistemi gereği kodları görebilmek için topluluğun bir parçası olmalısın.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="/login" class="btn btn-premium px-4">Giriş Yap</a>
+                            <a href="/register" class="btn btn-premium-outline px-4">Kayıt Ol</a>
+                        </div>
                     </div>
                 {% endif %}
 
-
-                <p class="text-muted mt-4 text-center">Sistem başarıyla kuruldu ve yerel sunucuda çalışıyor!</p>
-                <div class="badge bg-success p-2 fs-6 text-center">Backend: FastAPI & SQLite Aktif</div>
-
-            </div> </div>
+            </div>
+        </div>
     </div>
 
 </body>

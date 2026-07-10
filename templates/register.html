@@ -5,34 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-5 bg-white p-4 rounded shadow-sm">
-                <h3 class="text-center mb-4">Yeni Hesap Oluştur</h3>
+            <div class="col-md-6 col-lg-5">
                 
-                {% if error %}
-                <div class="alert alert-danger">{{ error }}</div>
-                {% endif %}
+                <div class="text-center mb-4">
+                    <a href="/" class="text-decoration-none">
+                        <h2 class="hero-title" style="font-size: 2.5rem;">CodePeer AI</h2>
+                    </a>
+                </div>
 
-                <form action="/register" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label">Kullanıcı Adı</label>
-                        <input type="text" name="username" class="form-control" required>
+                <div class="glass-card">
+                    <h3 class="text-center mb-4 fw-bold">Topluluğa Katıl</h3>
+                    
+                    {% if error %}
+                    <div class="alert alert-danger rounded-3">{{ error }}</div>
+                    {% endif %}
+
+                    <form action="/register" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-muted">Kullanıcı Adı</label>
+                            <input type="text" name="username" class="form-control" required placeholder="super_coder">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-muted">E-Posta</label>
+                            <input type="email" name="email" class="form-control" required placeholder="mail@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-muted">Şifre</label>
+                            <input type="password" name="password" class="form-control" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn btn-premium w-100 py-2 fs-5">Kayıt Ol</button>
+                    </form>
+                    <div class="mt-4 text-center">
+                        <p class="text-muted mb-0">Zaten hesabın var mı? <a href="/login" class="text-decoration-none fw-bold" style="color: var(--primary);">Giriş Yap</a></p>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">E-Posta</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Şifre</label>
-                        <input type="password" name="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
-                </form>
-                <div class="mt-3 text-center">
-                    <a href="/login" class="text-decoration-none">Zaten hesabın var mı? Giriş Yap</a>
                 </div>
             </div>
         </div>
