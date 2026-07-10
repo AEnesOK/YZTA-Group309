@@ -36,27 +36,34 @@
                 <hr class="my-5">
                 <h3 class="text-start mb-4 text-secondary">Son Paylaşılan Kodlar</h3>
                 
-                {% if posts %}
-                    <div class="row text-start">
-                        {% for post in posts %}
-                        <div class="col-12 mb-4">
-                            <div class="card border-0 shadow-sm">
-                                <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                                    <h5 class="m-0 fw-bold text-primary">{{ post.title }}</h5>
-                                    <span class="badge bg-dark">{{ post.language }}</span>
-                                </div>
-                                <div class="card-body bg-light">
-                                    <pre class="bg-dark text-light p-3 rounded" style="overflow-x: auto;"><code>{{ post.content }}</code></pre>
+                {% if username %}
+                    {% if posts %}
+                        <div class="row text-start">
+                            {% for post in posts %}
+                            <div class="col-12 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                                        <h5 class="m-0 fw-bold text-primary">{{ post.title }}</h5>
+                                        <span class="badge bg-dark">{{ post.language }}</span>
+                                    </div>
+                                    <div class="card-body bg-light">
+                                        <pre class="bg-dark text-light p-3 rounded" style="overflow-x: auto;"><code>{{ post.content }}</code></pre>
+                                    </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
+                    {% else %}
+                        <div class="alert alert-info text-start">
+                            Henüz hiç kod paylaşılmamış. İlk paylaşan sen ol!
+                        </div>
+                    {% endif %}
                 {% else %}
-                    <div class="alert alert-info text-start">
-                        Henüz hiç kod paylaşılmamış. İlk paylaşan sen ol!
+                    <div class="alert alert-warning text-center fs-5 shadow-sm">
+                        Paylaşılan kodları görebilmek için lütfen <strong><a href="/login" class="text-decoration-none">Giriş Yapın</a></strong> veya <strong><a href="/register" class="text-decoration-none">Kayıt Olun</a></strong>.
                     </div>
                 {% endif %}
+
 
                 <p class="text-muted mt-4 text-center">Sistem başarıyla kuruldu ve yerel sunucuda çalışıyor!</p>
                 <div class="badge bg-success p-2 fs-6 text-center">Backend: FastAPI & SQLite Aktif</div>

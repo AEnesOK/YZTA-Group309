@@ -27,8 +27,11 @@ def get_password_hash(password):
 # ANA SAYFA
 @app.get("/")
 def home(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
-    # Veri tabanındaki tüm kodları en yeniden eskiye doğru çek
-    posts = db.query(database.CodePost).order_by(database.CodePost.id.desc()).all()
+    # Sadece giriş yapan kullanıcılar kodları görebilir
+    if current_user:
+        posts = db.query(database.CodePost).order_by(database.CodePost.id.desc()).all()
+    else:
+        posts = []
     
     return templates.TemplateResponse(
         request=request, 
