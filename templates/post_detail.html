@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - CodePeer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            
+            <div class="col-lg-10 mb-4">
+                <a href="/" class="btn btn-premium-outline btn-sm px-3 mb-3">⬅ Anasayfaya Dön</a>
+                
+                <!-- Code Section -->
+                <div class="glass-card mb-4" style="padding: 2rem;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="fw-bold m-0" style="color: var(--text-main);">{{ post.title }}</h2>
+                        <div class="d-flex gap-2">
+                            <span class="badge-author">{{ author_name }}</span>
+                            <span class="badge-premium">{{ post.language }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-container">
+                        <pre class="m-0"><code>{{ post.content }}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Review Form -->
+                <div class="glass-card mb-5" style="padding: 2rem; background: rgba(255, 255, 255, 0.95);">
+                    <h4 class="fw-bold mb-3" style="color: var(--primary);">Code Review Bırak</h4>
+                    <form action="/post/{{ post.id }}/comment" method="POST">
+                        <textarea name="content" class="form-control mb-3" rows="4" placeholder="Koddaki potansiyel hataları veya daha iyi yazılabilecek yerleri belirt..." required></textarea>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-premium">Yorumu Gönder</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Comments Section -->
+                <h4 class="fw-bold mb-4" style="color: var(--text-main);">Değerlendirmeler</h4>
+                
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="glass-card mb-3" style="padding: 1.5rem; border-radius: 1rem;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge-author bg-dark text-light">{{ comment.display_name }}</span>
+                            <small class="text-muted">{{ comment.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                        </div>
+                        <p class="m-0 text-dark">{{ comment.content }}</p>
+                        <!-- AI Puanı Gelecek Yeri -->
+                        <div class="mt-3 p-3 rounded" style="background: rgba(79, 70, 229, 0.05); border-left: 4px solid var(--primary);">
+                            <small class="text-muted fw-bold d-block mb-1">🤖 AI Mediator Değerlendirmesi</small>
+                            <span class="text-secondary fst-italic">AI entegrasyonu (Sprint 3) bekleniyor...</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="text-muted fst-italic">Henüz bu koda hiç inceleme yapılmamış. İlk değerlendiren sen ol!</div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

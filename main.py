@@ -143,3 +143,58 @@ def create_post(
     db.commit()
     
     return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+
+# --- KOD DETAY SAYFASI ---
+@app.get("/post/{post_id}")
+def post_detail(request: Request, post_id: int, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+    post = db.query(database.CodePost).filter(database.CodePost.id == post_id).first()
+    if not post:
+        return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+        
+    comments = db.query(database.Comment).filter(database.Comment.post_id == post_id).order_by(database.Comment.id.desc()).all()
+    
+    # Çift Kör (Double-Blind) Mantığı
+    author_name = "Gizli Yazar"
+    if post.owner.username == current_user:
+        author_name = f"{current_user} (Sen)"
+        
+    for c in comments:
+        if c.author.username == current_user:
+            c.display_name = f"{current_user} (Sen)"
+        else:
+            c.display_name = f"CodePeer #{c.user_id}"
+
+    return templates.TemplateResponse(
+        request=request, 
+        name="post_detail.html", 
+        context={
+            "title": post.title, 
+            "username": current_user, 
+            "post": post,
+            "author_name": author_name,
+            "comments": comments
+        }
+    )
+
+# --- YORUM EKLEME ---
+@app.post("/post/{post_id}/comment")
+def add_comment(
+    request: Request, 
+    post_id: int, 
+    content: str = Form(...), 
+    current_user: str = Cookie(None), 
+    db: Session = Depends(database.get_db)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+    user = db.query(database.User).filter(database.User.username == current_user).first()
+    if user:
+        new_comment = database.Comment(content=content, user_id=user.id, post_id=post_id)
+        db.add(new_comment)
+        db.commit()
+    
+    return RedirectResponse(url=f"/post/{post_id}", status_code=status.HTTP_303_SEE_OTHER)
