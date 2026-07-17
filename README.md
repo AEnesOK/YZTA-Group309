@@ -146,7 +146,12 @@ Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyl
 - **Premium UI/UX:** Sıradan Bootstrap tasarımından çıkılarak, havaya kalkan butonlar, blur (bulanık) arka planlı cam efektli kartlar ve koyu mod (dark mode) kod blokları eklendi.
 - **Gerçek Code Review Akışı:** Kullanıcıların tıklayıp detayları görebileceği ve "Review" bırakabileceği sistem kodlandı. İsimler (Sen hariç) "Gizli Yazar" veya "CodePeer #1" olarak anonimleştirildi.
 
-*(Buraya projenin yeni tasarımını gösteren 1-2 ekran görüntüsü eklenecektir.)*
+<p align="center">
+  <img src="./assets/home-page.png" alt="CodePeer AI Anasayfa" width="800"/>
+</p>
+<p align="center">
+  <img src="./assets/post-detail.png" alt="CodePeer AI Post Detay" width="800"/>
+</p>
 
 ## Sprint-3
 Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
