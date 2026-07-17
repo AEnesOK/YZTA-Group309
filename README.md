@@ -129,10 +129,24 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 - Temel iskeletin ayağa kaldırılmasına odaklanılacak.
 
 
-## Sprint-2
-- Kodlama planı oluşturulmaya başlandı
-- İmplementation plan oluşturulmaya başlandı
-- Kodlamaya başlandıi.
+## Sprint 2 (6 Temmuz - 19 Temmuz 2026): MVP (Minimum Viable Product)
+
+Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyla ayağa kaldırdık. Yapay Zeka (AI) entegrasyonu dışındaki tüm temel fonksiyonlar ve arayüz tamamlandı.
+
+| Kart | Açıklama | Durum |
+|---|---|---|
+| Auth Sistemi (Login/Register) | Çerez tabanlı ve şifrelemeli kullanıcı giriş sistemi | ✅ Tamamlandı |
+| Veritabanı Altyapısı | FastAPI & SQLite ile tablo ilişkilerinin kurulması | ✅ Tamamlandı |
+| Şık ve Modern Arayüz (UI) | Glassmorphism, modern fontlar ve premium görünüm entegrasyonu | ✅ Tamamlandı |
+| Post Detay ve Review Ekranı | Kullanıcıların kod detayına inip değerlendirme yorumu bırakabilmesi | ✅ Tamamlandı |
+| Çift-Kör (Double-Blind) Gizlilik | Yazar ve İnceleyen kimliklerinin DB ve arayüz seviyesinde gizlenmesi | ✅ Tamamlandı |
+
+### 🚀 Sprint 2 Çıktıları ve Geliştirmeler
+- **Gizlilik Mantığı (Privacy):** Anasayfadaki kodların ziyaretçilerden gizlenmesi ve veritabanı sorgularının giriş yapanlara özel kısıtlanması sağlandı.
+- **Premium UI/UX:** Sıradan Bootstrap tasarımından çıkılarak, havaya kalkan butonlar, blur (bulanık) arka planlı cam efektli kartlar ve koyu mod (dark mode) kod blokları eklendi.
+- **Gerçek Code Review Akışı:** Kullanıcıların tıklayıp detayları görebileceği ve "Review" bırakabileceği sistem kodlandı. İsimler (Sen hariç) "Gizli Yazar" veya "CodePeer #1" olarak anonimleştirildi.
+
+*(Buraya projenin yeni tasarımını gösteren 1-2 ekran görüntüsü eklenecektir.)*
 
 ## Sprint-3
 Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
