@@ -131,26 +131,80 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 
 ## Sprint 2 (6 Temmuz - 19 Temmuz 2026): MVP (Minimum Viable Product)
 
-Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyla ayağa kaldırdık. Yapay Zeka (AI) entegrasyonu dışındaki tüm temel fonksiyonlar ve arayüz tamamlandı. Kodlar mainde birleştirildi.
+### Daily Scrum Süreci
+Ekip içi iletişim ve günlük durum değerlendirmeleri Slack üzerinden yürütüldü. Her gün ekip üyeleri "Dün ne yaptım?", "Bugün ne yapacağım?" ve "Önümde bir engel var mı?" formatında güncellemelerini paylaşarak senkronize kaldı.
 
-| Kart | Açıklama | Durum |
-|---|---|---|
-| Auth Sistemi (Login/Register) | Çerez tabanlı ve şifrelemeli kullanıcı giriş sistemi | ✅ Tamamlandı |
-| Veritabanı Altyapısı | FastAPI & SQLite ile tablo ilişkilerinin kurulması | ✅ Tamamlandı |
-| Şık ve Modern Arayüz (UI) | Glassmorphism, modern fontlar ve premium görünüm entegrasyonu | ✅ Tamamlandı |
-| Post Detay ve Review Ekranı | Kullanıcıların kod detayına inip değerlendirme yorumu bırakabilmesi | ✅ Tamamlandı |
-| Çift-Kör (Double-Blind) Gizlilik | Yazar ve İnceleyen kimliklerinin DB ve arayüz seviyesinde gizlenmesi | ✅ Tamamlandı |
+### Teknoloji Pivotu (Önemli Not)
+Sprint 1'de Next.js, Supabase, Vercel gibi bir teknoloji stack'i planlanmıştı. Geliştirme sürecinde ekip bilinçli olarak **FastAPI & SQLite** kullanımına geçmiştir. Bu değişiklik, hız ve ekip yetkinlikleriyle daha uyumlu olması nedeniyle Sprint 2 başında alınmış bir mimari karardır.
 
-### 🚀 Sprint 2 Çıktıları ve Geliştirmeler
-- **Gizlilik Mantığı (Privacy):** Anasayfadaki kodların ziyaretçilerden gizlenmesi ve veritabanı sorgularının giriş yapanlara özel kısıtlanması sağlandı.
-- **Premium UI/UX:** Sıradan Bootstrap tasarımından çıkılarak, havaya kalkan butonlar, blur (bulanık) arka planlı cam efektli kartlar ve koyu mod (dark mode) kod blokları eklendi.
-- **Gerçek Code Review Akışı:** Kullanıcıların tıklayıp detayları görebileceği ve "Review" bırakabileceği sistem kodlandı. İsimler (Sen hariç) "Gizli Yazar" veya "CodePeer #1" olarak anonimleştirildi.
+### Sprint 2 Kapsamında Tamamlananlar
+
+| Kart | Açıklama | Puan | Durum |
+|---|---|---|---|
+| Proje iskeleti & mimari pivot | FastAPI & SQLite temelli proje yapısının kurulması | 3 | ✅ Tamamlandı |
+| Veritabanı altyapısı | FastAPI & SQLite ile tablo ilişkilerinin kurulması | 6 | ✅ Tamamlandı |
+| Auth sistemi (Login/Register) | Çerez tabanlı, şifrelemeli kullanıcı giriş sistemi | 3 | ✅ Tamamlandı |
+| Kod gönderme (submit) ekranı | Kullanıcıların kod yükleyip gönderebilmesi | 6 | ✅ Tamamlandı |
+| Post detay ve review ekranı | Kullanıcıların kod detayına inip değerlendirme yorumu bırakabilmesi | 6 | ✅ Tamamlandı |
+| Premium UI/UX tasarımı *(ek iş)* | Glassmorphism, koyu mod, modern font ve kart tasarımları | 4 | ✅ Tamamlandı |
+| Çift-Kör (Double-Blind) gizlilik *(Sprint 3'ten öne çekildi)* | Yazar/inceleyen kimliklerinin DB ve arayüz seviyesinde gizlenmesi | 7 | ✅ Tamamlandı |
+| **Sprint 2 Tamamlanan Toplam** | | **35** | |
+
+*Not: Kullanıcı profili sayfası, QA test senaryoları, dokümantasyon şablonları ve kullanıcı hikayeleri gibi Sprint 2 için planlanan bazı işler (toplam 11 puan) Sprint 3'e ertelenmiştir. Buna karşılık, Double-Blind özelliği (7 puan) planın önüne geçilerek erken tamamlanmış, ayrıca plana dahil olmayan UI/UX çalışması (4 puan) ek olarak yapılmıştır. Bu değişimler birbirini dengeleyerek Sprint 2 toplamının plandaki 35 puana eşit kalmasını sağlamıştır.*
+
+### Sprint 2 Çıktıları ve Geliştirmeler
+- **Gizlilik Mantığı**: Anasayfadaki kodların ziyaretçilerden gizlenmesi, veritabanı sorgularının yalnızca giriş yapmış kullanıcılara özel kısıtlanması sağlandı.
+- **Premium UI/UX**: Standart tasarımdan çıkılarak blur arka planlı cam efektli kartlar, koyu mod kod blokları ve modern buton tasarımları eklendi.
+- **Gerçek Code Review Akışı**: Kullanıcıların koda tıklayıp detayları görebildiği ve review bırakabildiği sistem kodlandı. Yazar kimlikleri "Gizli Yazar" / "CodePeer #1" gibi anonim etiketlerle gizlenmektedir.
+
+
+### Sprint Review (Sprint İncelemesi)
+- Ürünün ilk çalışan versiyonu (MVP) başarıyla ayağa kaldırıldı.
+- Double-Blind gizlilik mekanizması planın önüne geçilerek erken tamamlandı.
+- AI entegrasyonu dışındaki tüm temel fonksiyonlar tamamlandı.
+
+
+## Hikaye Puanı (Story Point) Sistemi
+
+Proje ilerlemesini somut ve ölçülebilir şekilde takip edebilmek için tüm projeye toplam **100 puanlık** bir hikaye puanı bütçesi belirledik ve bu bütçeyi, backlog'daki her kartın karmaşıklığına göre 3 sprint arasında dağıttık. Basit/rutin işler düşük puan (1-3), belirsizlik veya efor gerektiren işler yüksek puan (5-10 arası) almıştır.
+
+Sprint 1'e bu bütçeden 15 puan ayrılmıştı çünkü bu sprintte henüz kod yazılmıyor, projenin karar aşaması (vizyon, teknoloji seçimi, hedef kitle, backlog) tamamlanıyordu. Sprint 1 sonunda planlanan 15 puanın tamamı tamamlanmış, yani bu sprint %100 hedefe ulaşarak kapanmıştır.
+
+Sprint 2'de ise ürünün ilk çalışan versiyonu (MVP) ayağa kaldırıldı. Planlanan 35 puanın tamamı tamamlandı — ancak kapsam birebir plandaki gibi ilerlemedi: bazı işler (kullanıcı profili sayfası, QA test senaryoları, dokümantasyon, kullanıcı hikayeleri — toplam 11 puan) Sprint 3'e ertelenirken, Double-Blind gizlilik özelliği (7 puan) planın önüne geçilerek erken tamamlandı ve plan dışı bir iş olan Premium UI/UX tasarımı (4 puan) ek olarak yapıldı. Bu değişimler birbirini dengeleyerek Sprint 2'nin toplamda yine %100 hedefe ulaşmasını sağladı.
+
+| Sprint | Planlanan Puan | Tamamlanan Puan | Durum |
+|---|---|---|---|
+| Sprint 1 (19 Haziran - 5 Temmuz) | 15 | 15 | ✅ Tamamlandı |
+| Sprint 2 (6 - 19 Temmuz) | 35 | 35 | ✅ Tamamlandı |
+| Sprint 3 (20 Temmuz - 2 Ağustos) | 50 | — | ⏳ Planlandı |
+| **Toplam Proje Puanı** | **100** | **50 / 100 (%50)** | |
+
+*Not: Sprint 3'ün planlanan puanı, Sprint 2'den ertelenen 11 puanlık işin eklenmesiyle 50'den 61'e yükselmiştir. Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
+
+
+### Sprint Retrospective (Sprint Değerlendirmesi)
+**Neyi iyi yaptık?**
+- Ekip içi iletişim ve görev paylaşımı hızlı ve sorunsuz işledi.
+- Mimari pivot kararı (FastAPI & SQLite) hızlıca ve ortak şekilde alındı.
+
+**Neyi iyileştirmemiz gerekiyor?**
+- Daily toplantı saatlerinin herkesin takvimine uygun sabit bir saate çekilmesi gerekiyor.
+- Sprint 3'teki teknik görevlerin efor tahminlemesi yapılırken potansiyel riskler daha detaylı konuşulmalı.
+
+**Sprint 3 İçin Aksiyon Planı:**
+- Yapay zeka (AI Mediator) entegrasyonuna aktif olarak başlanacak.
+- Sprint 2'den ertelenen işler (profil sayfası, QA, dokümantasyon, BA görevleri) Sprint 3 kapsamına dahil edilecek.
 
 <p align="center">
-  <img src="./assets/home-page.png" alt="CodePeer AI Anasayfa" width="800"/>
+  <img src="./assets/home-page.png" alt="giriş1" width="800"/>
 </p>
+
 <p align="center">
-  <img src="./assets/post-detail.png" alt="CodePeer AI Post Detay" width="800"/>
+  <img src="./assets/post-detail.png" alt="kayıtol" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./assets/post-detail.png" alt="hosgeldin" width="800"/>
 </p>
 
 ## Sprint 3 (20 Temmuz - 2 Ağustos 2026): Yapay Zeka Hakemi & Gelişmiş Özellikler
