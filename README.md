@@ -131,7 +131,7 @@ Sprint 1 tamamen altyapı, mimari kararlar ve tasarım üzerine kurulduğu için
 
 ## Sprint 2 (6 Temmuz - 19 Temmuz 2026): MVP (Minimum Viable Product)
 
-Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyla ayağa kaldırdık. Yapay Zeka (AI) entegrasyonu dışındaki tüm temel fonksiyonlar ve arayüz tamamlandı.
+Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyla ayağa kaldırdık. Yapay Zeka (AI) entegrasyonu dışındaki tüm temel fonksiyonlar ve arayüz tamamlandı. Kodlar mainde birleştirildi.
 
 | Kart | Açıklama | Durum |
 |---|---|---|
