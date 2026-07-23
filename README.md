@@ -89,9 +89,9 @@ Sprint 1'e bu bütçeden **15 puan** ayrılmıştı çünkü bu sprintte henüz 
 | Sprint | Planlanan Puan | Tamamlanan Puan | Durum |
 |---|---|---|---|
 | Sprint 1 (19 Haziran - 5 Temmuz) | 15 | 15 | ✅ Tamamlandı |
-| Sprint 2 (6 - 19 Temmuz) | 35 | — | 🔄 Devam Ediyor |
+| Sprint 2 (6 - 19 Temmuz) | 35 | 35 | ✅ Tamamlandı |
 | Sprint 3 (20 Temmuz - 2 Ağustos) | 50 | — | ⏳ Planlandı |
-| **Toplam Proje Puanı** | **100** | **15 / 100 (%15)** | |
+| **Toplam Proje Puanı** | **100** | **50 / 100 (%50)** | |
 
 *Not: Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
 
