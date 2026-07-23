@@ -196,15 +196,15 @@ Sprint 2'de ise ürünün ilk çalışan versiyonu (MVP) ayağa kaldırıldı. P
 - Sprint 2'den ertelenen işler (profil sayfası, QA, dokümantasyon, BA görevleri) Sprint 3 kapsamına dahil edilecek.
 
 <p align="center">
-  <img src="./assets/home-page.png" alt="giriş1" width="800"/>
+  <img src="./assets/home-page.png" alt="giriş1.png" width="800"/>
 </p>
 
 <p align="center">
-  <img src="./assets/post-detail.png" alt="kayıtol" width="800"/>
+  <img src="./assets/post-detail.png" alt="hosgeldn.png" width="800"/>
 </p>
 
 <p align="center">
-  <img src="./assets/post-detail.png" alt="hosgeldin" width="800"/>
+  <img src="./assets/post-detail.png" alt="örnekkod.png" width="800"/>
 </p>
 
 ## Sprint 3 (20 Temmuz - 2 Ağustos 2026): Yapay Zeka Hakemi & Gelişmiş Özellikler
