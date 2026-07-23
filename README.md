@@ -153,5 +153,16 @@ Sprint 2 kapsamında ürünümüzün çalışan ilk versiyonunu (MVP) başarıyl
   <img src="./assets/post-detail.png" alt="CodePeer AI Post Detay" width="800"/>
 </p>
 
-## Sprint-3
-Gelecek günlerde bu sprint için detaylı eklemeleri yapacağım.
+## Sprint 3 (20 Temmuz - 2 Ağustos 2026): Yapay Zeka Hakemi & Gelişmiş Özellikler
+
+Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmaktan çıkarıp, adını aldığı **Yapay Zeka (AI)** özelliklerine kavuşturacağız.
+
+| Kart | Açıklama | Durum |
+|---|---|---|
+| AI Mediator Entegrasyonu | Groq API bağlanarak, yapılan code review yorumlarının yapay zeka tarafından denetlenmesi | ⏳ Planlandı |
+| Yorum Puanlama Sistemi | Yapay zekanın "çok iyi tespit, 9/10" gibi reviewerlara kalite puanı vermesi (Gamification) | ⏳ Planlandı |
+| Monaco Editor Entegrasyonu | Kod paylaşma ekranındaki düz metin kutusunun, VS Code benzeri akıllı bir editörle değiştirilmesi | ⏳ Planlandı |
+| Bug Seeding (Opsiyonel) | Temiz kodların içine pratik yapılması için AI tarafından bilerek hata enjekte edilmesi | ⏳ Planlandı |
+
+### 🎯 Beklenen Çıktılar
+Bu sprint tamamlandığında, kullanıcılar kodlara yorum yaptıkları anda yapay zeka hakemi anında devreye girip o yorumun ne kadar teknik ve doğru olduğunu ölçecek. Ayrıca kod yazım deneyimi Monaco Editor ile çok daha profesyonel bir seviyeye taşınacak.
