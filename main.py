@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 import database
+import ai_service
 
 app = FastAPI(title="AI-Peer Platform")
 
@@ -179,7 +180,27 @@ def post_detail(request: Request, post_id: int, current_user: str = Cookie(None)
         }
     )
 
-# --- YORUM EKLEME ---
+# # --- YORUM EKLEME ---
+# @app.post("/post/{post_id}/comment")
+# def add_comment(
+#     request: Request, 
+#     post_id: int, 
+#     content: str = Form(...), 
+#     current_user: str = Cookie(None), 
+#     db: Session = Depends(database.get_db)
+# ):
+#     if not current_user:
+#         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+#     user = db.query(database.User).filter(database.User.username == current_user).first()
+#     if user:
+#         new_comment = database.Comment(content=content, user_id=user.id, post_id=post_id)
+#         db.add(new_comment)
+#         db.commit()
+    
+#     return RedirectResponse(url=f"/post/{post_id}", status_code=status.HTTP_303_SEE_OTHER)
+
+# --- YORUM EKLEME VE YAPAY ZEKA DEĞERLENDİRMESİ ---
 @app.post("/post/{post_id}/comment")
 def add_comment(
     request: Request, 
@@ -192,9 +213,176 @@ def add_comment(
         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
         
     user = db.query(database.User).filter(database.User.username == current_user).first()
+    
     if user:
+        # 1. Kullanıcının yorumunu veritabanına kaydet
         new_comment = database.Comment(content=content, user_id=user.id, post_id=post_id)
         db.add(new_comment)
         db.commit()
+        db.refresh(new_comment) # Yorumun ID'sini alabilmek için nesneyi güncelliyoruz
+        
+        # 2. İlgili kodu veritabanından çek (Yapay zekaya bağlam olarak sunmak için)
+        post = db.query(database.CodePost).filter(database.CodePost.id == post_id).first()
+        
+        if post:
+            # 3. AI Service'i çağır ve yorumu değerlendir
+            score, review_text = ai_service.evaluate_code_review(
+                code_content=post.content, 
+                user_comment=content
+            )
+            
+            # 4. Yapay zekanın değerlendirmesini ai_reviews tablosuna kaydet
+            new_ai_review = database.AIReview(
+                review_text=review_text,
+                score=score,
+                target_type="comment",
+                post_id=post_id,
+                comment_id=new_comment.id
+            )
+            db.add(new_ai_review)
+            db.commit()
     
     return RedirectResponse(url=f"/post/{post_id}", status_code=status.HTTP_303_SEE_OTHER)
+
+
+# # --- KULLANICI PROFİL SAYFASI ---
+# @app.get("/profile")
+# def profile_page(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+#     # Kullanıcı giriş yapmamışsa login'e yönlendir
+#     if not current_user:
+#         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+#     # Mevcut kullanıcıyı veritabanından çek
+#     user = db.query(database.User).filter(database.User.username == current_user).first()
+    
+#     if not user:
+#         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+
+#     # user nesnesini gönderdiğimizde user.posts ve user.comments 
+#     # veritabanı ilişkileri (relationship) sayesinde otomatik olarak erişilebilir olacak
+#     return templates.TemplateResponse(
+#         request=request, 
+#         name="profile.html", 
+#         context={
+#             "title": f"{user.username} - Profil", 
+#             "username": current_user, 
+#             "user": user
+#         }
+#     )
+
+
+# --- KULLANICI PROFİL SAYFASI VE ROZET SİSTEMİ ---
+@app.get("/profile")
+def profile_page(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+    user = db.query(database.User).filter(database.User.username == current_user).first()
+    if not user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+
+
+    total_score = 0
+    review_count = 0
+    language_stats = {}
+    
+    # Mentorluk istatistikleri için yeni değişkenler
+    mentor_score = 0
+    mentor_count = 0
+
+    # Yorumları ve dilleri analiz et
+    for comment in user.comments:
+        if comment.ai_reviews and comment.ai_reviews[0].score is not None:
+            ai_score = comment.ai_reviews[0].score
+            total_score += ai_score
+            review_count += 1
+            
+            lang = comment.post.language.strip()
+            
+            # KODUN SATIR SAYISINI HESAPLA
+            code_lines = len(comment.post.content.strip().splitlines())
+            
+            # Eğer kod 5 satır veya daha az ise, bunu MENTORLUK olarak değerlendir
+            if code_lines <= 5:
+                mentor_score += ai_score
+                mentor_count += 1
+            else:
+                # Eğer kod 5 satırdan uzunsa, bunu TEKNİK ustalık (Dil bazlı) olarak değerlendir
+                if lang not in language_stats:
+                    language_stats[lang] = {"total_score": 0, "count": 0}
+                
+                language_stats[lang]["total_score"] += ai_score
+                language_stats[lang]["count"] += 1
+
+    # Genel ortalama
+    avg_score = round(total_score / review_count, 1) if review_count > 0 else 0
+
+    # Rozetleri Belirle
+    earned_badges = []
+    
+    # 1. MENTORLUK ROZETLERİ (Kısa kodlara yapılan destekleyici yorumlar için)
+    if mentor_count >= 1:
+        mentor_avg = mentor_score / mentor_count
+        if mentor_count >= 2 and mentor_avg >= 8.5:
+            earned_badges.append("🤝 Topluluk Mentoru")
+        elif mentor_count >= 1 and mentor_avg >= 7.0:
+            earned_badges.append("👋 Yardımsever Geliştirici")
+
+    # 2. TEKNİK ROZETLER (Uzun kodlara yapılan teknik yorumlar için)
+    for lang, stats in language_stats.items():
+        lang_avg = stats["total_score"] / stats["count"]
+        
+        if stats["count"] >= 3 and lang_avg >= 8.5:
+            earned_badges.append(f"🏅 {lang} Master Reviewer")
+        elif stats["count"] >= 2 and lang_avg >= 7.0:
+            earned_badges.append(f"⭐ {lang} Senior Reviewer")
+        elif stats["count"] >= 1 and lang_avg >= 5.0:
+            earned_badges.append(f"👍 {lang} Gözlemcisi")
+
+    # total_score = 0
+    # review_count = 0
+    # language_stats = {} # Dillere göre istatistikleri tutacağımız sözlük
+
+    # # Yorumları ve dilleri analiz et
+    # for comment in user.comments:
+    #     if comment.ai_reviews and comment.ai_reviews[0].score is not None:
+    #         ai_score = comment.ai_reviews[0].score
+    #         total_score += ai_score
+    #         review_count += 1
+            
+    #         # Yorumun yapıldığı kodun dilini bul
+    #         lang = comment.post.language.strip().title() # Örn: "python" -> "Python"
+            
+    #         if lang not in language_stats:
+    #             language_stats[lang] = {"total_score": 0, "count": 0}
+            
+    #         language_stats[lang]["total_score"] += ai_score
+    #         language_stats[lang]["count"] += 1
+
+    # # Genel ortalama
+    # avg_score = round(total_score / review_count, 1) if review_count > 0 else 0
+
+    # # Rozetleri Belirle
+    # earned_badges = []
+    # for lang, stats in language_stats.items():
+    #     lang_avg = stats["total_score"] / stats["count"]
+        
+    #     # Rozet Kazanma Kuralları
+    #     if stats["count"] >= 3 and lang_avg >= 8.5:
+    #         earned_badges.append(f"🏅 {lang} Master Reviewer")
+    #     elif stats["count"] >= 2 and lang_avg >= 7.0:
+    #         earned_badges.append(f"⭐ {lang} Senior Reviewer")
+    #     elif stats["count"] >= 1 and lang_avg >= 5.0:
+    #         earned_badges.append(f"👍 {lang} Gözlemcisi")
+
+    return templates.TemplateResponse(
+        request=request, 
+        name="profile.html", 
+        context={
+            "title": f"{user.username} - Profil", 
+            "username": current_user, 
+            "user": user,
+            "avg_score": avg_score,
+            "earned_badges": earned_badges # Kazanılan rozetleri HTML'e gönder
+        }
+    )
