@@ -18,6 +18,7 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
+    learning_plan = Column(Text, nullable=True)  # AI tarafından oluşturulan kişisel eğitim programı
     
     posts = relationship("CodePost", back_populates="owner")
     comments = relationship("Comment", back_populates="author")

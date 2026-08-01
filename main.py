@@ -386,3 +386,29 @@ def profile_page(request: Request, current_user: str = Cookie(None), db: Session
             "earned_badges": earned_badges # Kazanılan rozetleri HTML'e gönder
         }
     )
+
+# --- AI EĞİTİM PROGRAMI OLUŞTURMA ---
+@app.post("/profile/generate-plan")
+def generate_plan(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+    user = db.query(database.User).filter(database.User.username == current_user).first()
+    if not user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+
+    # Kullanıcının AI'dan aldığı eleştirileri topla
+    ai_feedbacks = []
+    for comment in user.comments:
+        for review in comment.ai_reviews:
+            if review.review_text:
+                ai_feedbacks.append(review.review_text)
+
+    # AI servisine yolla ve planı al
+    plan = ai_service.generate_learning_plan(ai_feedbacks)
+    
+    # Kullanıcının planını güncelle
+    user.learning_plan = plan
+    db.commit()
+
+    return RedirectResponse(url="/profile", status_code=status.HTTP_303_SEE_OTHER)

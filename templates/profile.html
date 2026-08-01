@@ -48,6 +48,38 @@
             </div>
         </div>
 
+        <!-- AI Eğitim Programı Bölümü -->
+        <div class="glass-card p-4 mb-5 transition-all" style="border-radius: 1.25rem;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold m-0" style="color: var(--primary);">🤖 Kişiselleştirilmiş Gelişim Programım</h4>
+                <form action="/profile/generate-plan" method="POST" onsubmit="this.querySelector('button').innerHTML='Hazırlanıyor... ⏳'; this.querySelector('button').disabled=true;">
+                    <button type="submit" class="btn btn-premium px-4 py-2 fs-6">
+                        {% if user.learning_plan %}Programımı Güncelle{% else %}Programımı Oluştur{% endif %}
+                    </button>
+                </form>
+            </div>
+            
+            {% if user.learning_plan %}
+                <hr>
+                <div id="learning-plan-content" class="mt-4" style="color: var(--text-main); font-size: 1.1rem; line-height: 1.6;">
+                    {{ user.learning_plan }}
+                </div>
+                <!-- Markdown ayrıştırıcı (marked.js) -->
+                <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var contentDiv = document.getElementById("learning-plan-content");
+                        var rawMarkdown = contentDiv.innerText || contentDiv.textContent;
+                        contentDiv.innerHTML = marked.parse(rawMarkdown);
+                    });
+                </script>
+            {% else %}
+                <div class="text-center py-4">
+                    <p class="text-muted fs-5 mb-0">Geçmiş code review eleştirilerine göre sana özel bir çalışma programı henüz oluşturulmamış.</p>
+                </div>
+            {% endif %}
+        </div>
+
         <!-- İçerik Bölümü (Kodlar ve Yorumlar Yan Yana) -->
         <div class="row">
             

@@ -182,3 +182,43 @@ def evaluate_code_review(code_content: str, user_comment: str):
     except Exception as e:
         print(f"AI Hatası: {e}")
         return None, "Yapay zeka değerlendirmesi şu an yapılamadı."
+
+def generate_learning_plan(ai_feedbacks: list):
+    """
+    Kullanıcının daha önceki yorumlarına yapılan AI eleştirilerini analiz edip
+    kişiselleştirilmiş bir çalışma/gelişim programı üretir.
+    """
+    if not ai_feedbacks:
+        return "Henüz yeterli değerlendirme verisi yok. Sana özel bir plan çıkarabilmem için kodlara daha fazla yorum yapmalısın! 🚀"
+        
+    feedbacks_str = "\n".join([f"- {f}" for f in ai_feedbacks])
+    
+    prompt = f"""
+    Sen CodePeer AI platformunda kıdemli bir yazılım mentorusun.
+    Kullanıcı, başka geliştiricilerin kodlarını inceliyor ve yorumlar yapıyor.
+    Aşağıda, kullanıcının yaptığı yorumlara başka bir yapay zeka tarafından verilen eleştiri ve geri bildirimler yer alıyor.
+    Bu geri bildirimler, kullanıcının gözden kaçırdığı hataları veya yanlış tespitlerini içerir.
+
+    Geçmiş Hatalar ve Dönütler:
+    {feedbacks_str}
+
+    GÖREVİN:
+    Yukarıdaki dönütleri analiz ederek kullanıcıya özel, Markdown formatında, Türkçe bir "Yazılım Gelişim Programı" hazırla.
+    - Hangi konularda eksiği olduğunu tespit et (Örn: Döngüler, Hata Yönetimi, Temiz Kod).
+    - Hangi konulara çalışması gerektiğini belirle.
+    - Motive edici ve destekleyici bir dil kullan.
+    - Çıktıyı maddeler halinde ve okuması kolay, kısa tut (Maksimum 3-4 paragraf/başlık).
+    """
+    
+    try:
+        response = client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": "You are a helpful coding mentor. Output in Turkish Markdown."},
+                {"role": "user", "content": prompt}
+            ],
+            model="llama-3.3-70b-versatile"
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        print(f"AI Plan Hatası: {e}")
+        return "Yapay zeka ile plan oluşturulurken bir hata oluştu. Daha sonra tekrar dene."
