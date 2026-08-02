@@ -230,3 +230,8 @@ Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmakt
 ### Sprint Review (Sprint İncelemesi)
 - Sprint 3 başarıyla bitirildi ve CodePeer AI tam teşekküllü bir eğitim platformu kimliğine kavuştu.
 - Ekipten gelen anlık fikirlerle (Kişisel Gelişim Radarı) proje çok daha zengin bir hale getirildi. Projenin ana vizyonuna odaklanılması amacıyla "Bug Seeding" ve "Monaco Editor" özellikleri backlog'da ileri bir tarihe (Gelecek Vizyonu) bırakıldı.
+
+## Gelecek Vizyonu (Future Vision)
+Kısıtlı proje süresi nedeniyle backlog'da bırakılan ancak CodePeer AI'nin tam potansiyeline ulaşması için gelecekte eklenmesi hedeflenen özellikler:
+- **Bug Seeding (Kasıtlı Hata Enjeksiyonu):** Temiz kodların içine yapay zeka tarafından kasıtlı hatalar gizlenerek, kullanıcıların hata yakalama pratiği yapmasının sağlanması.
+- **Monaco Editor Entegrasyonu:** Kod paylaşım ekranındaki metin kutusunun, VS Code ile aynı altyapıyı kullanan (otomatik tamamlama ve akıllı renklendirme) profesyonel bir editör ile değiştirilmesi.
