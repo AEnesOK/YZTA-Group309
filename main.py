@@ -386,3 +386,34 @@ def profile_page(request: Request, current_user: str = Cookie(None), db: Session
             "earned_badges": earned_badges # Kazanılan rozetleri HTML'e gönder
         }
     )
+
+
+# --- AI MENTOR: GELİŞİM RADARI SAYFASI ---
+@app.get("/mentor")
+def mentor_page(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+        
+    user = db.query(database.User).filter(database.User.username == current_user).first()
+    if not user:
+        return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
+
+    # Kullanıcının aldığı son AI değerlendirmelerini topla
+    ai_feedbacks = []
+    # Son 5 yorumunu analiz etmek sunum için hızlı ve etkilidir
+    for comment in user.comments[-5:]: 
+        if comment.ai_reviews and comment.ai_reviews[0].review_text:
+            ai_feedbacks.append(comment.ai_reviews[0].review_text)
+
+    # Toplanan verileri AI'a gönder ve eksik konu başlıklarını (topics) al
+    topics = ai_service.generate_mentor_advice(ai_feedbacks)
+
+    return templates.TemplateResponse(
+        request=request, 
+        name="mentor.html", 
+        context={
+            "title": "Gelişim Radarı", 
+            "username": current_user, 
+            "topics": topics
+        }
+    )
