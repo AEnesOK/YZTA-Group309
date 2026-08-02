@@ -227,6 +227,19 @@ Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmakt
 - **Gamification & Rozet Sistemi:** Yapılan yorumların puan ortalamalarına ve kodların satır/dil analizine göre kullanıcılara "Topluluk Mentoru", "Senior Reviewer" gibi rozetler verildi.
 - **Gelişmiş Anasayfa ve UX:** Logomuz arayüze entegre edildi. Anasayfaya kodları dillere göre filtreleme, liderlik tablosu, günün ipucu ve canlı AI işlem akışı gibi profesyonel bir görünüm katıldı.
 
+- <p align="center">
+  <img src="./assets/yenianasayfa.png" alt="CodePeer AI logo" width="900"/>
+</p>
+
+- <p align="center">
+  <img src="./assets/yeniarayüz.png" alt="CodePeer AI logo" width="900"/>
+</p>
+
+- <p align="center">
+  <img src="./assets/yeniprofil.png" alt="CodePeer AI logo" width="900"/>
+</p>
+
+
 ### Sprint Review (Sprint İncelemesi)
 - Sprint 3 başarıyla bitirildi ve CodePeer AI tam teşekküllü bir eğitim platformu kimliğine kavuştu.
    Projenin ana vizyonuna odaklanılması amacıyla "Bug Seeding" ve "Monaco Editor" özellikleri backlog'da ileri bir tarihe (Gelecek Vizyonu) bırakıldı.
