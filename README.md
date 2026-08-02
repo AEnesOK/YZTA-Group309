@@ -229,7 +229,16 @@ Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmakt
 
 ### Sprint Review (Sprint İncelemesi)
 - Sprint 3 başarıyla bitirildi ve CodePeer AI tam teşekküllü bir eğitim platformu kimliğine kavuştu.
-- Ekipten gelen anlık fikirlerle (Kişisel Gelişim Radarı) proje çok daha zengin bir hale getirildi. Projenin ana vizyonuna odaklanılması amacıyla "Bug Seeding" ve "Monaco Editor" özellikleri backlog'da ileri bir tarihe (Gelecek Vizyonu) bırakıldı.
+   Projenin ana vizyonuna odaklanılması amacıyla "Bug Seeding" ve "Monaco Editor" özellikleri backlog'da ileri bir tarihe (Gelecek Vizyonu) bırakıldı.
+
+- ## Hikaye Puanı (Story Point) Sistemi — Final Özet
+
+| Sprint | Planlanan Puan | Tamamlanan Puan | Durum |
+|---|---|---|---|
+| Sprint 1 (19 Haziran - 5 Temmuz) | 15 | 15 | ✅ Tamamlandı |
+| Sprint 2 (6 - 19 Temmuz) | 35 | 35 | ✅ Tamamlandı |
+| Sprint 3 (20 Temmuz - 2 Ağustos) | 50 | 50 | ✅ Tamamlandı |
+| **Toplam Proje Puanı** | **100** | **100 / 100 (%100)** | |
 
 ## Gelecek Vizyonu (Future Vision)
 Kısıtlı proje süresi nedeniyle backlog'da bırakılan ancak CodePeer AI'nin tam potansiyeline ulaşması için gelecekte eklenmesi hedeflenen özellikler:
