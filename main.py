@@ -387,9 +387,16 @@ def profile_page(request: Request, current_user: str = Cookie(None), db: Session
         }
     )
 
+<<<<<<< HEAD
 # --- AI EĞİTİM PROGRAMI OLUŞTURMA ---
 @app.post("/profile/generate-plan")
 def generate_plan(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+=======
+
+# --- AI MENTOR: GELİŞİM RADARI SAYFASI ---
+@app.get("/mentor")
+def mentor_page(request: Request, current_user: str = Cookie(None), db: Session = Depends(database.get_db)):
+>>>>>>> 740a2996774bab3222cab9d29e6a8692df3ab82f
     if not current_user:
         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
         
@@ -397,6 +404,7 @@ def generate_plan(request: Request, current_user: str = Cookie(None), db: Sessio
     if not user:
         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
 
+<<<<<<< HEAD
     # Kullanıcının AI'dan aldığı eleştirileri topla
     ai_feedbacks = []
     for comment in user.comments:
@@ -412,3 +420,24 @@ def generate_plan(request: Request, current_user: str = Cookie(None), db: Sessio
     db.commit()
 
     return RedirectResponse(url="/profile", status_code=status.HTTP_303_SEE_OTHER)
+=======
+    # Kullanıcının aldığı son AI değerlendirmelerini topla
+    ai_feedbacks = []
+    # Son 5 yorumunu analiz etmek sunum için hızlı ve etkilidir
+    for comment in user.comments[-5:]: 
+        if comment.ai_reviews and comment.ai_reviews[0].review_text:
+            ai_feedbacks.append(comment.ai_reviews[0].review_text)
+
+    # Toplanan verileri AI'a gönder ve eksik konu başlıklarını (topics) al
+    topics = ai_service.generate_mentor_advice(ai_feedbacks)
+
+    return templates.TemplateResponse(
+        request=request, 
+        name="mentor.html", 
+        context={
+            "title": "Gelişim Radarı", 
+            "username": current_user, 
+            "topics": topics
+        }
+    )
+>>>>>>> 740a2996774bab3222cab9d29e6a8692df3ab82f

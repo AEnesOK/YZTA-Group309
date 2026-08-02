@@ -24,6 +24,35 @@ def evaluate_code_review(code_content: str, user_comment: str):
 
     Your job is to evaluate whether the HUMAN review correctly identifies issues in the code.
 
+    Sen bir "Kod İnceleme (Code Review) Hakemi"sin.
+    Senin görevin KOD YAZMAK, KODU DÜZELTMEK veya TAVSİYE VERMEK DEĞİLDİR!
+    Sen, B kişisinin (yorumcunun), A kişisinin (yazarın) koduna yaptığı analizin doğruluk ve kalitesini ölçeceksin.
+
+    ÖZEL DURUM (MOTİVASYON VE BASİT KODLAR - ÇOK ÖNEMLİ!):
+    - Eğer orijinal kod çok basitse (örneğin 1-5 satırlık bir "Hello World" veya temel bir print işlemiyse), yorumu yazan kişiden derinlemesine teknik bir analiz veya hata bulmasını KESİNLİKLE BEKLEME. 
+    - Bu tür temel kodlarda, yorumcunun kodu yazan kişiyi motive edici, eğitici (pedagojik) ve destekleyici tavrı teknik analizden çok daha değerlidir. 
+    - Eğer yorumcu sadece destek olmak, tebrik etmek ve temel mantığı (örneğin print fonksiyonunu) övmek için yazmışsa; bunu mükemmel bir mentorluk olarak gör, yüksek puan ver ve ASLA "teknik eksiklik var" veya "hata bulmadın" diye puan KIRMA.
+
+    SÜREÇ:
+    1. Orijinal KOD'u analiz et ve içindeki bariz hataları, mantık sorunlarını veya eksikleri kendi içinde tespit et.
+    2. YORUM'u oku. Yorumu yazan kişi, koddaki gerçek ve bariz hataları başarıyla fark etmiş mi?
+    3. Yorumu yazan kişi olmayan bir hatayı var gibi mi göstermiş (yanlış tespit)?
+    4. Yorumu yazan kişi, koddaki bariz ve kritik bir hatayı tamamen gözden kaçırmış mı?
+
+    KESİN KURALLAR (BUNLARI İHLAL ETMEK KESİNLİKLE YASAKTIR):
+    - ASLA kodu nasıl düzelteceğini anlatma!
+    - ASLA kod parçacığı (code snippet), kütüphane önerisi veya fonksiyon örneği paylaşma!
+    - B kişisine (yorumu yazana) kodu düzeltmesi gerektiğini SÖYLEME, çünkü o sadece bir inceleyici, kodun sahibi değil.
+    - SADECE B kişisinin analizinin kalitesini değerlendir. Neyi doğru buldu, neyi gözden kaçırdı?
+    
+    ÖRNEK DOĞRU HAKEM DÖNÜŞÜ (Sadece bunu model al):
+    "Koddaki döngü (loop) mantığı hatasını çok iyi yakalamışsın, başarılı bir tespit. Ancak girdi doğrulaması (input validation) yapılmadığını tamamen gözden kaçırmışsın. Kodun genelini inceleme konusunda daha dikkatli olmalısın."
+
+    ÖRNEK YASAKLI DÖNÜŞ (BUNU ASLA YAPMA):
+    "Döngü mantığını iyi bulmuşsun. Girdi doğrulaması için kodu şöyle değiştirmelisin: try-except ekle..." -> (ÇÜNKÜ ÇÖZÜM SUNMAK YASAKTIR!)
+
+    verdiğim örnek cümleler sadece örnek amaçlı. sen koddaki hata veya yanlışlara göre yorum yapacaksın. standart bir cevabın yok. koddaki hatalara göre cevaplıyorsun.
+
     Never provide new code improvements.
     Never explain how to fix the code.
     Never suggest implementation changes.
@@ -37,7 +66,11 @@ def evaluate_code_review(code_content: str, user_comment: str):
     4. Tell the reviewer ONLY WHAT THEY MISSED.
     5. Do not explain HOW TO FIX the missed issue.
 
-    
+    çok basit bir kod veya çok kısa bir kod verildiğinde örneğin temel bir script olabilir. kullanıcı kodlamaya yeni başlamış olabilir. bu tarz kodlara yapılan destekleyici ve moral verici yorumları puanlarken ve analiz ederken
+    kodlama konusunda yorum yapmalarını bekleme. bu tarz yorumlar yalnızca kişileri mental olarak desteklemek maksatlı yapılmıs yorumlar olabilir. bu yorumlara da güzel 8+ puan verebilirsin. 
+
+    eğerki yorum yapılan kod çok basit ve kısa bir kodsa. bu koda yapılan yorumda kodun kalitesini, hata durumlarını, fonksiyonun parametrelerini vs. gibi noktaları değerlendirme. sonuçta bu kod temel bir kod ve kimse bir destek 
+    mesajından daha fazlasını beklemıyor. 
     STRICT PROHIBITIONS
 
     You must never:
@@ -183,6 +216,7 @@ def evaluate_code_review(code_content: str, user_comment: str):
         print(f"AI Hatası: {e}")
         return None, "Yapay zeka değerlendirmesi şu an yapılamadı."
 
+<<<<<<< HEAD
 def generate_learning_plan(ai_feedbacks: list):
     """
     Kullanıcının daha önceki yorumlarına yapılan AI eleştirilerini analiz edip
@@ -222,3 +256,83 @@ def generate_learning_plan(ai_feedbacks: list):
     except Exception as e:
         print(f"AI Plan Hatası: {e}")
         return "Yapay zeka ile plan oluşturulurken bir hata oluştu. Daha sonra tekrar dene."
+=======
+def generate_mentor_advice(ai_feedbacks: list):
+    """
+    Kullanıcının aldığı eski AI geri bildirimlerini okuyarak, 
+    gelişmesi gereken 3 ana konuyu belirler.
+    """
+    if not ai_feedbacks:
+        return ["Henüz yeterli verimiz yok. Gelişim analizin için önce birkaç kod incelemesi (Code Review) yapmalısın!"]
+
+    # Geri bildirimleri tek bir metinde birleştir
+    feedbacks_text = "\n".join([f"- {f}" for f in ai_feedbacks])
+
+    # prompt = f"""
+    # Sen, yazılım geliştiricilere eğitim tavsiyesi veren uzman bir mentorsun.
+    # Aşağıda, bir kullanıcının geçmişte yaptığı kod incelemelerine karşılık AI Hakem'den aldığı geri bildirimler var:
+    
+    # {feedbacks_text}
+
+    # Görev: Bu metinleri analiz et. Kullanıcının hangi konularda (örneğin; Hata Yönetimi, Performans, Clean Code, Güvenlik vb.) eksik olduğunu tespit et. Ona çalışması gereken 3 adet konu başlığı çıkar.
+    
+    # SADECE geçerli bir JSON formatında şu yapıyla cevap ver:
+    # {{
+    #     "topics": [
+    #         "Konu Başlığı 1: Neden bunu çalışmalı ve nasıl geliştirebilir (1 cümlelik kısa açıklama).",
+    #         "Konu Başlığı 2: Neden bunu çalışmalı ve nasıl geliştirebilir (1 cümlelik kısa açıklama).",
+    #         "Konu Başlığı 3: Neden bunu çalışmalı ve nasıl geliştirebilir (1 cümlelik kısa açıklama)."
+    #     ]
+    # }}
+    # """
+
+    prompt = f"""
+    Sen bir "Kod İnceleme (Code Review) Mentoru"sun.
+    Görevin: Aşağıdaki geçmiş değerlendirme notlarını analiz ederek kullanıcının KOD OKUMA ve HATA YAKALAMA yeteneğindeki yapısal zayıflıkları bulmak.
+
+    GEÇMİŞ DEĞERLENDİRMELER (Kullanıcının yaptığı incelemelere verilen dönütler):
+    {feedbacks_text}
+
+    KURALLAR:
+    1. Geçmiş değerlendirmelerde tekrarlayan tespit hatalarını veya sürekli gözden kaçırılan kavramları bul.
+    2. SADECE geçmiş değerlendirmelerde bahsedilen konular üzerinden çıkarım yap. Kendi kendine yeni kavramlar uydurma.
+    3. Kullanıcıya kod yazma tavsiyesi VERME. Sadece başkalarının kodunu okurken/incelerken neye dikkat etmesi gerektiği konusunda yönlendir.
+    
+    SADECE geçerli JSON formatında şu yapıyla cevap ver:
+    {{
+        "topics": [
+            {{
+                "title": "Tespit Edilen Zayıf Konsept Başlığı (Örn: Hata Yönetimi)",
+                "description": "Bu konuda kod okurken neyi gözden kaçırıyor ve ileride neye dikkat etmeli? (1-2 cümle)"
+            }},
+            {{
+                "title": "Tespit Edilen Zayıf Konsept Başlığı",
+                "description": "Bu konuda kod okurken neyi gözden kaçırıyor ve ileride neye dikkat etmeli? (1-2 cümle)"
+            }}
+        ]
+    }}
+    """
+
+    try:
+        response = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Sen kıdemli bir yazılım mentorusun. Yalnızca JSON formatında yanıt ver."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            model="llama-3.1-8b-instant",
+            response_format={"type": "json_object"}
+        )
+
+        result = json.loads(response.choices[0].message.content)
+        return result.get("topics", ["Gelişim başlıkları şu an oluşturulamadı, lütfen tekrar dene."])
+
+    except Exception as e:
+        print(f"Mentor AI Hatası: {e}")
+        return ["Yapay zeka analizi şu an yapılamadı."]
+>>>>>>> 740a2996774bab3222cab9d29e6a8692df3ab82f

@@ -176,8 +176,8 @@ Sprint 2'de ise ürünün ilk çalışan versiyonu (MVP) ayağa kaldırıldı. P
 |---|---|---|---|
 | Sprint 1 (19 Haziran - 5 Temmuz) | 15 | 15 | ✅ Tamamlandı |
 | Sprint 2 (6 - 19 Temmuz) | 35 | 35 | ✅ Tamamlandı |
-| Sprint 3 (20 Temmuz - 2 Ağustos) | 50 | — | ⏳ Planlandı |
-| **Toplam Proje Puanı** | **100** | **50 / 100 (%50)** | |
+| Sprint 3 (20 Temmuz - 2 Ağustos) | 50 (+11 Ek) | 61 | ✅ Tamamlandı |
+| **Toplam Proje Puanı** | **100** | **111 / 100 (%111)** | |
 
 *Not: Sprint 3'ün planlanan puanı, Sprint 2'den ertelenen 11 puanlık işin eklenmesiyle 50'den 61'e yükselmiştir. Sprint 3'teki "Bug Seeding" özelliği stretch (koşullu) bir hedef olarak işaretlenmiştir; süre yetişmezse toplam puana dahil edilmeden README'nin "Gelecek Vizyonu" bölümünde belirtilecektir.*
 
@@ -209,14 +209,24 @@ Sprint 2'de ise ürünün ilk çalışan versiyonu (MVP) ayağa kaldırıldı. P
 
 ## Sprint 3 (20 Temmuz - 2 Ağustos 2026): Yapay Zeka Hakemi & Gelişmiş Özellikler
 
-Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmaktan çıkarıp, adını aldığı **Yapay Zeka (AI)** özelliklerine kavuşturacağız.
+Sprint 3 kapsamında CodePeer AI'yi sıradan bir kod paylaşım platformu olmaktan çıkarıp, adını aldığı **Yapay Zeka (AI)** özelliklerine kavuşturduk.
+
+### Sprint 3 Kapsamında Tamamlananlar
 
 | Kart | Açıklama | Durum |
 |---|---|---|
-| AI Mediator Entegrasyonu | Groq API bağlanarak, yapılan code review yorumlarının yapay zeka tarafından denetlenmesi | ⏳ Planlandı |
-| Yorum Puanlama Sistemi | Yapay zekanın "çok iyi tespit, 9/10" gibi reviewerlara kalite puanı vermesi (Gamification) | ⏳ Planlandı |
-| Monaco Editor Entegrasyonu | Kod paylaşma ekranındaki düz metin kutusunun, VS Code benzeri akıllı bir editörle değiştirilmesi | ⏳ Planlandı |
-| Bug Seeding (Opsiyonel) | Temiz kodların içine pratik yapılması için AI tarafından bilerek hata enjekte edilmesi | ⏳ Planlandı |
+| AI Mediator Entegrasyonu | Groq API bağlanarak, yapılan code review yorumlarının yapay zeka tarafından denetlenmesi | ✅ Tamamlandı |
+| Yorum Puanlama Sistemi | Yapay zekanın reviewerlara 1-10 arası kalite puanı vermesi (Gamification) | ✅ Tamamlandı |
+| Profil, İstatistik ve Rozetler | Kullanıcıların profil sayfasında genel ortalamalarını ve uzmanlık rozetlerini görmesi | ✅ Tamamlandı |
+| Gelişmiş Anasayfa (UI/UX) | Kodların dile göre sıralanıp filtrelenmesi, liderlik tablosu, günün ipucu ve canlı AI akışı | ✅ Tamamlandı |
+| Kişisel Gelişim Radarı (Ekstra) | Kullanıcıların daha önce yapay zekadan aldığı uyarılara göre kişiselleştirilmiş eğitim planı çıkarılması | ✅ Tamamlandı |
 
-### 🎯 Beklenen Çıktılar
-Bu sprint tamamlandığında, kullanıcılar kodlara yorum yaptıkları anda yapay zeka hakemi anında devreye girip o yorumun ne kadar teknik ve doğru olduğunu ölçecek. Ayrıca kod yazım deneyimi Monaco Editor ile çok daha profesyonel bir seviyeye taşınacak.
+### 🚀 Sprint 3 Çıktıları ve Geliştirmeler
+- **Yapay Zeka Hakemi (AI Mediator):** Kullanıcılar kodlara yorum yaptıkları anda Groq API tabanlı yapay zeka hakemi devreye girerek yorumun teknik doğruluğunu ve eksiklerini değerlendirip bir skor veriyor.
+- **Kişisel Gelişim Radarı:** Plana sonradan eklenen bu çok kritik özellikle, yapay zeka kullanıcının geçmişteki zayıf yönlerini (göremediği hataları) analiz edip, çalışması gereken konular için özel bir Markdown rapor (eğitim programı) üretiyor.
+- **Gamification & Rozet Sistemi:** Yapılan yorumların puan ortalamalarına ve kodların satır/dil analizine göre kullanıcılara "Topluluk Mentoru", "Senior Reviewer" gibi rozetler verildi.
+- **Gelişmiş Anasayfa ve UX:** Logomuz arayüze entegre edildi. Anasayfaya kodları dillere göre filtreleme, liderlik tablosu, günün ipucu ve canlı AI işlem akışı gibi profesyonel bir görünüm katıldı.
+
+### Sprint Review (Sprint İncelemesi)
+- Sprint 3 başarıyla bitirildi ve CodePeer AI tam teşekküllü bir eğitim platformu kimliğine kavuştu.
+- Ekipten gelen anlık fikirlerle (Kişisel Gelişim Radarı) proje çok daha zengin bir hale getirildi. Projenin ana vizyonuna odaklanılması amacıyla "Bug Seeding" ve "Monaco Editor" özellikleri backlog'da ileri bir tarihe (Gelecek Vizyonu) bırakıldı.

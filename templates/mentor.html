@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - CodePeer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mb-4">
+                <a href="/profile" class="btn btn-premium-outline btn-sm px-3 mb-3">⬅ Profile Dön</a>
+                
+                <div class="glass-card" style="padding: 3rem;">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold" style="color: var(--primary);">🧠 Kişisel Gelişim Radarı</h2>
+                        <p class="text-muted">Son kod incelemelerine (Code Review) dayanarak, AI Mentorun senin için hazırladığı eksik olduğun konu başlıkları ve çalışma tavsiyeleri.</p>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                        {% for topic in topics %}
+                            <div class="p-4 rounded" style="background-color: rgba(13, 110, 253, 0.05); border-left: 4px solid var(--primary);">
+                                <div class="d-flex align-items-start gap-3">
+                                    <span class="fs-4">🎯</span>
+                                    <div>
+                                        <!-- Başlık kısmı -->
+                                        <h5 class="fw-bold text-dark mb-1">{{ topic.title }}</h5>
+                                        <!-- Açıklama metni kısmı -->
+                                        <p class="mb-0 text-secondary" style="line-height: 1.6;">{{ topic.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
